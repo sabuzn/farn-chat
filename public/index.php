@@ -2,6 +2,17 @@
 
 declare(strict_types=1);
 
-require dirname(__DIR__) . '/app/bootstrap.php';
+require_once dirname(__DIR__) . '/app/Router.php';
+require_once dirname(__DIR__) . '/app/bootstrap.php';
 
-echo 'Farn Chat';
+$router = new Router();
+
+$router->get(
+    '/',
+    [HomeController::class, 'index']
+);
+
+$router->dispatch(
+    $_SERVER['REQUEST_METHOD'],
+    $_SERVER['REQUEST_URI']
+);
