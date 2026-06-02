@@ -7,10 +7,7 @@ require_once dirname(__DIR__) . '/app/bootstrap.php';
 
 $router = new Router();
 
-$router->get(
-    '/',
-    [HomeController::class, 'index']
-);
+$router->get('/', [app\Controllers\HomeController::class, 'index']);
 
 $router->dispatch(
     $_SERVER['REQUEST_METHOD'],
