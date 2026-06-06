@@ -2,10 +2,19 @@
 
 declare(strict_types=1);
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+// 1. O Autoloader artesanal do farn-chat
+spl_autoload_register(function (string $class): void {
+    // O $class vem como "app\Router" ou "app\Controllers\UserController"
+    // Mudamos para "app/Router.php" ou "app/Controllers/UserController.php"
+    $classPath = dirname(__DIR__) . '/' . str_replace('\\', '/', $class) . '.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(
-    dirname(__DIR__)
-);
+    if (file_exists($classPath)) {
+        require_once $classPath;
+    }
+});
 
-$dotenv->load();
+// 2. Carrega suas variáveis de ambiente do .env normalmente
+if (class_exists('Dotenv\Dotenv')) {
+    $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+    $dotenv->load();
+}

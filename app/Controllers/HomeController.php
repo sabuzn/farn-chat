@@ -13,7 +13,7 @@ class HomeController
         $pageTitle = "Farn Chat - Homepage";
 
         // Caminho absoluto para a view da homepage baseado na árvore de diretórios do seu projeto
-        $viewPath = __DIR__ . '/../View/homepage.php';
+        $viewPath = __DIR__ . '/../Views/homepage.php';
 
         if (file_exists($viewPath)) {
             require_once $viewPath;

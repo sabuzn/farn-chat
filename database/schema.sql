@@ -23,7 +23,7 @@ CREATE TABLE servers (
 
     owner_id INT NOT NULL,
 
-    name VARCHAR(255) NOT NULL,
+    fullname VARCHAR(255) NOT NULL,
     description TEXT,
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -38,7 +38,7 @@ CREATE TABLE channels (
 
     server_id INT NOT NULL,
 
-    name VARCHAR(255) NOT NULL,
+    fullname VARCHAR(255) NOT NULL,
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
