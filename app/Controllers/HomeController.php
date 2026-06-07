@@ -10,10 +10,10 @@ class HomeController
     public function index()
     {
         // Define o título da página ou outras variáveis que a view possa usar
-        $pageTitle = "Farn Chat - Homepage";
+        $pageTitle = "Farn Chat - Landing";
 
         // Caminho absoluto para a view da homepage baseado na árvore de diretórios do seu projeto
-        $viewPath = __DIR__ . '/../Views/homepage.php';
+        $viewPath = __DIR__ . '/../Views/landing.php';
 
         if (file_exists($viewPath)) {
             require_once $viewPath;

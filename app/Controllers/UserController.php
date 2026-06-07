@@ -145,7 +145,7 @@ final class UserController
             $_SESSION['user_name'] = $userData['name'];
     
             // Redireciona o usuário autenticado para a homepage do farn-chat
-            header('Location: /homepage');
+            header('Location: /dashboard');
             exit();
         } catch (Exception $e) {
             $_SESSION['error'] = $e->getMessage();
